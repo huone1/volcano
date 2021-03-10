@@ -312,6 +312,7 @@ func interPodAffinityScore(
 		nodeScores[nodeScore.Name] = float64(nodeScore.Score)
 	}
 
+	klog.V(4).Infof("inter pod affinity Score for task %s/%s is: %v", pod.Namespace, pod.Name, nodeScores)
 	return nodeScores, nil
 }
 
@@ -363,6 +364,7 @@ func taintTolerationScore(
 		nodeScores[nodeScore.Name] = float64(nodeScore.Score)
 	}
 
+	klog.V(4).Infof("taint toleration Score for task %s/%s is: %v", pod.Namespace, pod.Name, nodeScores)
 	return nodeScores, nil
 }
 
