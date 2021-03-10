@@ -127,6 +127,8 @@ func getPreScoreState(cycleState *framework.CycleState) (*preScoreState, error) 
 
 // CountIntolerableTaintsPreferNoSchedule gives the count of intolerable taints of a pod with effect PreferNoSchedule
 func countIntolerableTaintsPreferNoSchedule(taints []v1.Taint, tolerations []v1.Toleration) (intolerableTaints int) {
+	klog.V(4).Infof("taints: %v\n", taints)
+	klog.V(4).Infof("tolerations: %v\n", tolerations)
 	for _, taint := range taints {
 		// check only on taints that have effect PreferNoSchedule
 		if taint.Effect != v1.TaintEffectPreferNoSchedule {
@@ -137,6 +139,8 @@ func countIntolerableTaintsPreferNoSchedule(taints []v1.Taint, tolerations []v1.
 			intolerableTaints++
 		}
 	}
+
+	klog.V(4).Infof("countIntolerableTaintsPreferNoSchedule: %d\n", intolerableTaints)
 	return
 }
 

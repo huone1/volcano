@@ -343,6 +343,9 @@ func taintTolerationScore(
 			Name:  nodeName,
 			Score: s,
 		}
+
+		klog.V(4).Infof("taint toleration Score for task %s/%s on node %s is: %v",
+			pod.Namespace, pod.Name, nodeName, s)
 	})
 
 	select {
