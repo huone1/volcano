@@ -26,6 +26,7 @@ import (
 	pluginhelper "k8s.io/kubernetes/pkg/scheduler/framework/plugins/helper"
 	framework "k8s.io/kubernetes/pkg/scheduler/framework/v1alpha1"
 	"k8s.io/kubernetes/pkg/scheduler/nodeinfo"
+	"k8s.io/klog"
 )
 
 // TaintToleration is a plugin that checks if a pod tolerates a node's taints.
